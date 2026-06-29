@@ -1,0 +1,27 @@
+# Secrets / environment-specific config
+config/db.php
+config/installed.lock
+.env
+.env.*
+
+# Runtime files
+storage/
+uploads/
+error_log
+*.log
+*.lock
+
+# Server-specific config
+php.ini
+.user.ini
+
+# Temporary / maintenance scripts
+test.php
+patch_apply.php
+migrate_attended_at.php
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
