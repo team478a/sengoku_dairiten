@@ -1,0 +1,21 @@
+Options -Indexes
+RewriteEngine On
+
+# uploads への直アクセス許可
+RewriteRule ^uploads/(.+)$ uploads/$1 [L]
+
+# install.php / worker.php は直接アクセス許可
+RewriteRule ^install\.php$ install.php [L]
+RewriteRule ^worker\.php$  worker.php  [L]
+
+# app/ config/ storage/ へのアクセス禁止
+RewriteRule ^app/      - [F,L]
+RewriteRule ^config/   - [F,L]
+RewriteRule ^storage/  - [F,L]
+
+# 存在するファイル・ディレクトリはそのまま
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# それ以外は index.php へ
+RewriteRule ^(.*)$ index.php [L,QSA]
