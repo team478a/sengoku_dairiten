@@ -15,8 +15,8 @@ ob_start();
 <div class="card" style="max-width:560px">
   <div class="card-header"><?= $pageTitle ?></div>
   <div class="card-body">
-    <form method="POST" action="<?= $action ?>
-<?= csrf_field() ?>">
+    <form method="POST" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>">
+      <?= csrf_field() ?>
       <div class="form-group">
         <label>タイトル</label>
         <input type="text" name="title" value="<?= $v('title', 'AIアート教室') ?>" required>
